@@ -1,4 +1,14 @@
 class AttendeesController < ApplicationController
+  before_action :current_user_must_be_attendee_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_attendee_user
+    attendee = Attendee.find(params[:id])
+
+    unless current_user == attendee.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @attendees = Attendee.all
 

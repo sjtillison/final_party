@@ -20,8 +20,11 @@
         <td><%= attendee.party.name %></td>
         <td>
           <a href="/attendees/<%= attendee.id %>" class="btn btn-primary">Show</a>
-          <a href="/attendees/<%= attendee.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_attendee/<%= attendee.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == attendee.user %>
+            <a href="/attendees/<%= attendee.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_attendee/<%= attendee.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

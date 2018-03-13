@@ -17,12 +17,14 @@
       <a href="/attendees" class="btn btn-primary">
         Back
       </a>
-      <a href="/attendees/<%= @attendee.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_attendee/<%= @attendee.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @attendee.user %>
+        <a href="/attendees/<%= @attendee.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_attendee/<%= @attendee.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
