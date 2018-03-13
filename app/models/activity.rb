@@ -1,6 +1,9 @@
 class Activity < ApplicationRecord
   # Direct associations
 
+  has_many   :planned_events,
+             :dependent => :destroy
+
   belongs_to :city
 
   # Indirect associations
