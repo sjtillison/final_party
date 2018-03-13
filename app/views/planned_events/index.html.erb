@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Planned events
+    <a href="/planned_events/new" class="btn btn-lg btn-success">New Planned event</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Party</th>
+        <th>Activity</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @planned_events.each do |planned_event| %>
+      <tr>
+        <td><%= planned_event.party_id %></td>
+        <td><%= planned_event.activity_id %></td>
+        <td>
+          <a href="/planned_events/<%= planned_event.id %>" class="btn btn-primary">Show</a>
+          <a href="/planned_events/<%= planned_event.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_planned_event/<%= planned_event.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

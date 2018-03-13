@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Planned_event resource:
+  # CREATE
+  get "/planned_events/new", :controller => "planned_events", :action => "new"
+  post "/create_planned_event", :controller => "planned_events", :action => "create"
+
+  # READ
+  get "/planned_events", :controller => "planned_events", :action => "index"
+  get "/planned_events/:id", :controller => "planned_events", :action => "show"
+
+  # UPDATE
+  get "/planned_events/:id/edit", :controller => "planned_events", :action => "edit"
+  post "/update_planned_event/:id", :controller => "planned_events", :action => "update"
+
+  # DELETE
+  get "/delete_planned_event/:id", :controller => "planned_events", :action => "destroy"
+  #------------------------------
+
   # Routes for the Activity resource:
   # CREATE
   get "/activities/new", :controller => "activities", :action => "new"
