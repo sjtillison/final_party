@@ -16,7 +16,7 @@
 
       <% @planned_events.each do |planned_event| %>
       <tr>
-        <td><%= planned_event.party_id %></td>
+        <td><%= planned_event.party.name %></td>
         <td><%= planned_event.activity_id %></td>
         <td>
           <a href="/planned_events/<%= planned_event.id %>" class="btn btn-primary">Show</a>
