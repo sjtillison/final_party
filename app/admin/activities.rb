@@ -1,4 +1,6 @@
 ActiveAdmin.register Activity do
+
+ permit_params :title, :notes, :cost_pp, :city_id, :website
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
