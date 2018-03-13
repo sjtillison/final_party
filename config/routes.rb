@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "parties#index"
   # Routes for the Lodging resource:
   # CREATE
   get "/lodgings/new", :controller => "lodgings", :action => "new"
