@@ -47,8 +47,6 @@ class AttendeesController < ApplicationController
 
   def update
     @attendee = Attendee.find(params[:id])
-
-    @attendee.user_id = params[:user_id]
     @attendee.party_id = params[:party_id]
 
     save_status = @attendee.save
