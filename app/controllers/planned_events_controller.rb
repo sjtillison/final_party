@@ -1,6 +1,6 @@
 class PlannedEventsController < ApplicationController
   def index
-    @planned_events = PlannedEvent.all
+    @planned_events = PlannedEvent.page(params[:page]).per(10)
 
     render("planned_events/index.html.erb")
   end

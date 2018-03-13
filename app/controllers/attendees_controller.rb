@@ -10,7 +10,7 @@ class AttendeesController < ApplicationController
   end
 
   def index
-    @attendees = Attendee.all
+    @attendees = Attendee.page(params[:page]).per(10)
 
     render("attendees/index.html.erb")
   end

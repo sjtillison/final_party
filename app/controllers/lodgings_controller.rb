@@ -1,6 +1,6 @@
 class LodgingsController < ApplicationController
   def index
-    @lodgings = Lodging.all
+    @lodgings = Lodging.page(params[:page]).per(10)
 
     render("lodgings/index.html.erb")
   end
