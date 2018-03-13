@@ -1,6 +1,7 @@
 class LodgingsController < ApplicationController
   def index
-    @lodgings = Lodging.page(params[:page]).per(10)
+    @q = Lodging.ransack(params[:q])
+    @lodgings = @q.result(:distinct => true).includes(:city, :parties).page(params[:page]).per(10)
 
     render("lodgings/index.html.erb")
   end

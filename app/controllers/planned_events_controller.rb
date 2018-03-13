@@ -1,6 +1,7 @@
 class PlannedEventsController < ApplicationController
   def index
-    @planned_events = PlannedEvent.page(params[:page]).per(10)
+    @q = PlannedEvent.ransack(params[:q])
+    @planned_events = @q.result(:distinct => true).includes(:party, :activity).page(params[:page]).per(10)
 
     render("planned_events/index.html.erb")
   end
