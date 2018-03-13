@@ -21,7 +21,7 @@
       <% @parties.each do |party| %>
       <tr>
         <td><%= party.name %></td>
-        <td><%= party.type_id %></td>
+        <td><%= party.type.event_type %></td>
         <td><%= party.city_id %></td>
         <td><%= party.start_date %></td>
         <td><%= party.end_date %></td>
