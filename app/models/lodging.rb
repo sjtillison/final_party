@@ -5,6 +5,8 @@ class Lodging < ApplicationRecord
 
   # Validations
 
+  validates :name, :uniqueness => { :scope => [:address] }
+
   validates :name, :presence => true
 
 end
