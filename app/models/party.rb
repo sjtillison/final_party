@@ -1,6 +1,8 @@
 class Party < ApplicationRecord
   # Direct associations
 
+  belongs_to :lodging
+
   belongs_to :type
 
   belongs_to :city

@@ -1,6 +1,9 @@
 class Lodging < ApplicationRecord
   # Direct associations
 
+  has_many   :parties,
+             :dependent => :destroy
+
   belongs_to :city
 
   # Indirect associations
