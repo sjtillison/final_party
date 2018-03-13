@@ -6,6 +6,8 @@ class PartiesController < ApplicationController
   end
 
   def show
+    @attendee = Attendee.new
+    @planned_event = PlannedEvent.new
     @party = Party.find(params[:id])
 
     render("parties/show.html.erb")

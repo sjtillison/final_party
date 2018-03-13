@@ -6,6 +6,7 @@ class TypesController < ApplicationController
   end
 
   def show
+    @party = Party.new
     @type = Type.find(params[:id])
 
     render("types/show.html.erb")

@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @planned_event = PlannedEvent.new
     @activity = Activity.find(params[:id])
 
     render("activities/show.html.erb")

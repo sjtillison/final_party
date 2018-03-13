@@ -6,6 +6,7 @@ class LodgingsController < ApplicationController
   end
 
   def show
+    @party = Party.new
     @lodging = Lodging.find(params[:id])
 
     render("lodgings/show.html.erb")
