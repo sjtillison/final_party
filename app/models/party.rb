@@ -5,6 +5,8 @@ class Party < ApplicationRecord
 
   # Validations
 
+  validates :name, :uniqueness => true
+
   validates :name, :presence => true
 
   validates :start_date, :presence => true
