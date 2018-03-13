@@ -33,7 +33,7 @@
           Type
         </label>
 
-        <input type="text" id="type_id" name="type_id" placeholder="Type" class="form-control" value="<%= @party.type_id %>">
+        <%= select_tag(:type_id, options_from_collection_for_select(Type.all, :id, :event_type, @party.type_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for city_id -->
