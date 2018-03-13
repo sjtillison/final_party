@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Party</dt>
-      <dd><%= @planned_event.party_id %></dd>
+      <dd>
+        <% if @planned_event.party.present? %>
+          <a href="/parties/<%= @planned_event.party_id %>">
+            <%= @planned_event.party.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Activity</dt>
-      <dd><%= @planned_event.activity_id %></dd>
+      <dd>
+        <% if @planned_event.activity.present? %>
+          <a href="/activities/<%= @planned_event.activity_id %>">
+            <%= @planned_event.activity.title %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

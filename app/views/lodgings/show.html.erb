@@ -15,7 +15,13 @@
       <dd><%= @lodging.address %></dd>
 
       <dt>City</dt>
-      <dd><%= @lodging.city_id %></dd>
+      <dd>
+        <% if @lodging.city.present? %>
+          <a href="/cities/<%= @lodging.city_id %>">
+            <%= @lodging.city.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Cost night</dt>
       <dd><%= @lodging.cost_night %></dd>

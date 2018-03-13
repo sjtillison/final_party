@@ -22,7 +22,13 @@
         <td><%= lodging.name %></td>
         <td><%= lodging.url %></td>
         <td><%= lodging.address %></td>
-        <td><%= lodging.city.name %></td>
+        <td>
+          <% if lodging.city.present? %>
+            <a href="/cities/<%= lodging.city.id %>">
+              <%= lodging.city.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= lodging.cost_night %></td>
         <td>
           <a href="/lodgings/<%= lodging.id %>" class="btn btn-primary">Show</a>

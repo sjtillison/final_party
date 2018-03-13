@@ -16,8 +16,20 @@
 
       <% @planned_events.each do |planned_event| %>
       <tr>
-        <td><%= planned_event.party.name %></td>
-        <td><%= planned_event.activity.title %></td>
+        <td>
+          <% if planned_event.party.present? %>
+            <a href="/parties/<%= planned_event.party.id %>">
+              <%= planned_event.party.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if planned_event.activity.present? %>
+            <a href="/activities/<%= planned_event.activity.id %>">
+              <%= planned_event.activity.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/planned_events/<%= planned_event.id %>" class="btn btn-primary">Show</a>
           <a href="/planned_events/<%= planned_event.id %>/edit" class="btn btn-warning">Edit</a>

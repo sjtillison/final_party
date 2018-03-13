@@ -22,7 +22,13 @@
         <td><%= activity.title %></td>
         <td><%= activity.notes %></td>
         <td><%= activity.cost_pp %></td>
-        <td><%= activity.city.name %></td>
+        <td>
+          <% if activity.city.present? %>
+            <a href="/cities/<%= activity.city.id %>">
+              <%= activity.city.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= activity.website %></td>
         <td>
           <a href="/activities/<%= activity.id %>" class="btn btn-primary">Show</a>

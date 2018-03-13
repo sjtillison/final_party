@@ -9,10 +9,22 @@
       <dd><%= @party.name %></dd>
 
       <dt>Type</dt>
-      <dd><%= @party.type_id %></dd>
+      <dd>
+        <% if @party.type.present? %>
+          <a href="/types/<%= @party.type_id %>">
+            <%= @party.type.event_type %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>City</dt>
-      <dd><%= @party.city_id %></dd>
+      <dd>
+        <% if @party.city.present? %>
+          <a href="/cities/<%= @party.city_id %>">
+            <%= @party.city.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Start date</dt>
       <dd><%= @party.start_date %></dd>
@@ -21,7 +33,13 @@
       <dd><%= @party.end_date %></dd>
 
       <dt>Lodging</dt>
-      <dd><%= @party.lodging_id %></dd>
+      <dd>
+        <% if @party.lodging.present? %>
+          <a href="/lodgings/<%= @party.lodging_id %>">
+            <%= @party.lodging.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

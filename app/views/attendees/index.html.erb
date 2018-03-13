@@ -16,8 +16,20 @@
 
       <% @attendees.each do |attendee| %>
       <tr>
-        <td><%= attendee.user.email %></td>
-        <td><%= attendee.party.name %></td>
+        <td>
+          <% if attendee.user.present? %>
+            <a href="/users/<%= attendee.user.id %>">
+              <%= attendee.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if attendee.party.present? %>
+            <a href="/parties/<%= attendee.party.id %>">
+              <%= attendee.party.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/attendees/<%= attendee.id %>" class="btn btn-primary">Show</a>
           

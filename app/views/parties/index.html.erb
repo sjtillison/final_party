@@ -21,11 +21,29 @@
       <% @parties.each do |party| %>
       <tr>
         <td><%= party.name %></td>
-        <td><%= party.type.event_type %></td>
-        <td><%= party.city.name %></td>
+        <td>
+          <% if party.type.present? %>
+            <a href="/types/<%= party.type.id %>">
+              <%= party.type.event_type %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if party.city.present? %>
+            <a href="/cities/<%= party.city.id %>">
+              <%= party.city.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= party.start_date %></td>
         <td><%= party.end_date %></td>
-        <td><%= party.lodging.name %></td>
+        <td>
+          <% if party.lodging.present? %>
+            <a href="/lodgings/<%= party.lodging.id %>">
+              <%= party.lodging.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/parties/<%= party.id %>" class="btn btn-primary">Show</a>
           <a href="/parties/<%= party.id %>/edit" class="btn btn-warning">Edit</a>
