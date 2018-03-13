@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @lodging.errors.any? %>
+  <% @lodging.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Lodging</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_lodging" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @lodging.name %>">
+      </div>
+
+      <!-- Label and input for url -->
+      <div class="form-group">
+        <label for="url" class="control-label">
+          Url
+        </label>
+
+        <input type="text" id="url" name="url" placeholder="Url" class="form-control" value="<%= @lodging.url %>">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @lodging.address %>">
+      </div>
+
+      <!-- Label and input for city_id -->
+      <div class="form-group">
+        <label for="city_id" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city_id" name="city_id" placeholder="City" class="form-control" value="<%= @lodging.city_id %>">
+      </div>
+
+      <!-- Label and input for cost_night -->
+      <div class="form-group">
+        <label for="cost_night" class="control-label">
+          Cost night
+        </label>
+
+        <input type="text" id="cost_night" name="cost_night" placeholder="Cost night" class="form-control" value="<%= @lodging.cost_night %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Lodging
+      </button>
+      or
+      <a href="/lodgings">Cancel</a>
+    </form>
+  </div>
+</div>

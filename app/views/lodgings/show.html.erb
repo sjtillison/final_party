@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Lodging #<%= @lodging.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @lodging.name %></dd>
+
+      <dt>Url</dt>
+      <dd><%= @lodging.url %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @lodging.address %></dd>
+
+      <dt>City</dt>
+      <dd><%= @lodging.city_id %></dd>
+
+      <dt>Cost night</dt>
+      <dd><%= @lodging.cost_night %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/lodgings" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/lodgings/<%= @lodging.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_lodging/<%= @lodging.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
