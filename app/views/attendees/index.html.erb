@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Attendees
+    <a href="/attendees/new" class="btn btn-lg btn-success">New Attendee</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Party</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @attendees.each do |attendee| %>
+      <tr>
+        <td><%= attendee.user_id %></td>
+        <td><%= attendee.party_id %></td>
+        <td>
+          <a href="/attendees/<%= attendee.id %>" class="btn btn-primary">Show</a>
+          <a href="/attendees/<%= attendee.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_attendee/<%= attendee.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

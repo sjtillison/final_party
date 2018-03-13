@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Attendee resource:
+  # CREATE
+  get "/attendees/new", :controller => "attendees", :action => "new"
+  post "/create_attendee", :controller => "attendees", :action => "create"
+
+  # READ
+  get "/attendees", :controller => "attendees", :action => "index"
+  get "/attendees/:id", :controller => "attendees", :action => "show"
+
+  # UPDATE
+  get "/attendees/:id/edit", :controller => "attendees", :action => "edit"
+  post "/update_attendee/:id", :controller => "attendees", :action => "update"
+
+  # DELETE
+  get "/delete_attendee/:id", :controller => "attendees", :action => "destroy"
+  #------------------------------
+
   devise_for :users
   # Routes for the User resource:
   # READ
