@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @activity.errors.any? %>
+  <% @activity.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Activity</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_activity" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @activity.title %>">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @activity.notes %>">
+      </div>
+
+      <!-- Label and input for cost_pp -->
+      <div class="form-group">
+        <label for="cost_pp" class="control-label">
+          Cost pp
+        </label>
+
+        <input type="text" id="cost_pp" name="cost_pp" placeholder="Cost pp" class="form-control" value="<%= @activity.cost_pp %>">
+      </div>
+
+      <!-- Label and input for city_id -->
+      <div class="form-group">
+        <label for="city_id" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city_id" name="city_id" placeholder="City" class="form-control" value="<%= @activity.city_id %>">
+      </div>
+
+      <!-- Label and input for website -->
+      <div class="form-group">
+        <label for="website" class="control-label">
+          Website
+        </label>
+
+        <input type="text" id="website" name="website" placeholder="Website" class="form-control" value="<%= @activity.website %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Activity
+      </button>
+      or
+      <a href="/activities">Cancel</a>
+    </form>
+  </div>
+</div>
