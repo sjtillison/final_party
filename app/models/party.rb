@@ -1,6 +1,10 @@
 class Party < ApplicationRecord
   # Direct associations
 
+  has_many   :events,
+             :class_name => "PlannedEvent",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
