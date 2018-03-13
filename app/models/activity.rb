@@ -5,6 +5,8 @@ class Activity < ApplicationRecord
 
   # Validations
 
+  validates :cost_pp, :numericality => true
+
   validates :title, :presence => true
 
 end
